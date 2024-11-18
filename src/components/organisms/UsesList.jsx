@@ -13,6 +13,9 @@ const UsersList = () => {
     const loadUsers = async () => {
         const response = await getUsers();
         setUsers(response.data);
+     
+
+        
     };
 
     const handleSort = (field) => {

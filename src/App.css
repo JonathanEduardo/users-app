@@ -17,7 +17,7 @@
 
 
 .sidebar{@apply bg-primary-color text-secondary-color-lighter fixed left-0 top-0 w-2/12 h-full px-2 flex flex-col justify-between py-4}
-.navbar{@apply bg-secondary-color-lighter h-10 text-secondary-color-lighter fixed left-0 top-0 w-full}
+.navbar{@apply bg-secondary-color-lighter h-10 text-primary-color fixed left-0 top-0 w-full}
 .contain-main{@apply bg-secondary-color px-10 py-12; margin-left: 16.666%; width: 84%; }
 .option-menu{@apply bg-primary-color hover:bg-tertiary-color-lighter-200 flex flex-row px-2 py-1.5 text-xs font-medium rounded-md my-3}
 .option-menu i {@apply mr-3}
