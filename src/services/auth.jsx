@@ -56,6 +56,28 @@ export const createUser = async (userData) => {
 };
 
 
+// Función para actualizar un usuario existente
+export const updateUser = async (userId, userData) => {
+    try {
+        const response = await axios.put(`${API_URL}/api/users/${userId}`, userData);
+        return response.data;
+    } catch (error) {
+        console.error('Error al actualizar usuario:', error);
+        throw error;
+    }
+};
+
+
+// Función para eliminar un usuario
+export const deleteUser = async (userId) => {
+    try {
+        const response = await axios.delete(`${API_URL}/api/users/${userId}`);
+        return response.data;
+    } catch (error) {
+        console.error('Error al eliminar usuario:', error);
+        throw error;
+    }
+};
 
 export const getUsers = () => api.get('/users');
 

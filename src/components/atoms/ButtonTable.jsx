@@ -1,7 +1,7 @@
 // src/components/atoms/Button.jsx
 import React from 'react';
 
-const ButtonTable = ({ onClick, children, type = 'button' }) => {
+const ButtonTable = ({ onClick,  children, type = 'button' }) => {
   return (
 
     <>

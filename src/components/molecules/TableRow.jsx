@@ -3,7 +3,7 @@ import Switch from '../atoms/Switch';
 import Button from '../atoms/Button';
 import ButtonTable from '../atoms/ButtonTable';
 
-const TableRow = ({ user, onToggleStatus, onClick }) => {
+const TableRow = ({ user, onToggleStatus, onClick, deleteUser }) => {
 
   
    
@@ -28,7 +28,13 @@ return (
             <div class="relative h-10  px-10">
         
             <ButtonTable onClick={() => onClick(user)} type='submit'>
-                Editar
+                
+                <i class="fa-solid fa-pen-to-square"></i>
+            </ButtonTable>
+
+            <ButtonTable  onClick={() => deleteUser(user.id)} type='submit'>
+                 <i class="fa-solid fa-trash"></i>
+
             </ButtonTable>
 
               <Switch 

@@ -2,7 +2,7 @@ import React from 'react';
 import TableHeader from './TableHeader';
 import TableRow from './TableRow';
 
-const UserTable = ({ onClick, users, onSort, onToggleStatus }) => {
+const UserTable = ({ onClick, deleteUser,  users, onSort, onToggleStatus }) => {
     const columns = [
         { key: 'name', label: 'Nombre' },
         { key: 'email', label: 'Correo Electrónico' },
@@ -20,6 +20,7 @@ const UserTable = ({ onClick, users, onSort, onToggleStatus }) => {
                         user={user} 
                         onToggleStatus={onToggleStatus} 
                         onClick={onClick}
+                        deleteUser={deleteUser}
                     />
                 ))}
             </tbody>

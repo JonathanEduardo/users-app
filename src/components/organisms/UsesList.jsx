@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import UserTable from '../molecules/UserTable';
 import {  toggleUserStatus } from '../../services/api';
-import {createUser , getUsers} from '../../services/auth';
+import {createUser , getUsers, updateUser, deleteUser} from '../../services/auth';
 import Modal from '../atoms/Modal.JSX';
 import UserForm from '../molecules/UserForm';
+import DeleteForm from '../molecules/DeleteForm';
 
 const UsersList = () => {
     const [users, setUsers] = useState([]);
@@ -44,13 +45,12 @@ const UsersList = () => {
 
      // Crear o Editar Usuario
      const handleUserSubmit = async (userData) => {
-     //  email: 'jonathan@artendidital.mx', password: 'xfgfxgxfgxv'}
+   
 
-
-    //  console.log(userData);
-      
+    
      if (isEditMode) {
-          // await updateUser(userData.id, userData);  // Llamada para actualizar usuario
+
+          await updateUser(currentUser.id, userData);  // Llamada para actualizar usuario
       } else {
           await createUser(userData);  // Llamada para crear nuevo usuario
       }
@@ -70,6 +70,8 @@ const UsersList = () => {
 
     // Eliminar Usuario
     const handleDeleteUser = async () => {
+
+      alert(userToDelete);
       if (userToDelete) {
           await deleteUser(userToDelete);
           setDeleteModalOpen(false);
@@ -82,12 +84,14 @@ const UsersList = () => {
    const openDeleteModal = (userId) => {
     setUserToDelete(userId);
     setDeleteModalOpen(true);
+
+    console.log(userId);
 };
 
     // Abrir modal para Crear/Editar
     const openUserModal = (user = null) => {
 
-      console.log(user);
+
       setCurrentUser(user);
       setEditMode(!!user);
       setModalOpen(true);
@@ -102,6 +106,7 @@ const UsersList = () => {
                 onSort={handleSort} 
                 onToggleStatus={handleToggleStatus} 
                 onClick={openUserModal}
+                deleteUser={openDeleteModal}
 
             />
 
@@ -109,6 +114,13 @@ const UsersList = () => {
                <UserForm onSubmit={handleUserSubmit} error={error} currentUser={currentUser} />
                
             </Modal>
+
+
+            <Modal isOpen={isDeleteModalOpen} onClose={closeUserModal} title={'¿Deseas eliminar este usuario?'}>
+               <DeleteForm onSubmit={handleDeleteUser}  onClose={closeUserModal} error={error} currentUser={currentUser} />
+               
+            </Modal>
+          
 
             
 
