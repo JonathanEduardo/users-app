@@ -13,8 +13,13 @@ const Users = () => {
     <>
    
    <Dashboard/>
+
+
    <div className='contain-main'>
-    <UsersList/>
+    {/* <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5"> */}
+      <UsersList/>
+    {/* </div> */}
+
    </div>
  
 

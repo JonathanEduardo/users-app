@@ -29,7 +29,28 @@ const Navbar = () => {
 
   return (
     <div className='navbar '>
-      {name }
+
+    <div className='flex flex-row justify-between  w-8/12  lg:w-10/12 '>
+      <div className='flex flex-col text-primary-color'>
+          <div className='font-normal text-xs'>Catalogo de usuarios</div>
+          <div className='font-bold'>Usuarios</div>
+        </div>
+
+        <div className=''>
+          <i class="fa-solid fa-bell border-r-2 border-primary-color-lighter py-2 mt-1 px-2"></i>
+        </div>
+    </div>
+
+      <div className=' w-4/12  lg:w-2/12 flex flex-row justify-center  gap-4 px-'>
+        <div className='rounded-full border w-9 text-center'>
+          <i class="text-2xl fa-solid fa-user"></i>
+        </div>
+        <div className='flex flex-col'>
+          <span className='text-sm font-bold'>{name}</span>
+          <span className='text-xs'>{name}</span>
+        </div>
+      </div>
+      
                 
     </div>
   );
