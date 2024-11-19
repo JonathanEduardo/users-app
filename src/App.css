@@ -15,15 +15,15 @@
 }
 
 /*Templates*/
-.sidebar{@apply bg-primary-color text-secondary-color-lighter fixed left-0 top-0 w-56 h-full px-2 flex flex-col justify-between py-4 }
-.navbar{@apply bg-secondary-color-lighter h-14 text-primary-color fixed left-0 top-0 w-full  flex justify-end items-center px-4; margin-left: 16.666%; width: 84%; }
-.contain-main{@apply bg-secondary-color px-10 py-16 h-screen; margin-left: 16.666%; width: 84%; }
+.sidebar{@apply bg-primary-color text-secondary-color-lighter   z-50 left-0 top-0  h-full px-2 flex flex-col justify-between py-4 w-full; position: relative; }
+.navbar{@apply bg-secondary-color-lighter h-14 text-primary-color absolute z-40 left-0 top-0 w-full  flex justify-end items-center px-4 pl-64; }
+.contain-main{@apply bg-secondary-color px-10 py-16 h-screen overflow-y-auto;  }
 .option-menu{@apply bg-primary-color hover:bg-tertiary-color-lighter-200 flex flex-row px-2 py-1.5 text-xs font-medium rounded-md my-3}
 .option-menu i {@apply mr-3}
 
 
  /* Table  */
-table{@apply w-full border-collapse bg-white text-left text-sm text-gray-500}
+table{@apply w-full border-collapse bg-white text-left text-sm text-gray-500 }
 thead{@apply bg-gray-50}
 th{@apply px-6 py-4 font-medium text-gray-900}
 tbody{@apply divide-y divide-gray-100 border-t border-gray-100}

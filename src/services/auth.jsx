@@ -2,96 +2,99 @@
 
 import axios from 'axios';
 
-// Configuración base
-const API_URL = 'http://localhost:8000';
-axios.defaults.withCredentials = true;
+// Base configuration
+const API_URL = 'http://localhost:8000'; // Base URL for the API
+axios.defaults.withCredentials = true; // Ensures cookies are sent with requests
 
+// Create an Axios instance with custom settings
 const api = axios.create({
-    baseURL: `${API_URL}/api`,
+    baseURL: `${API_URL}/api`, // API base path
     headers: {
-        'Accept': 'application/json',
-        'X-Requested-With': 'XMLHttpRequest',
+        'Accept': 'application/json', // Accept JSON responses
+        'X-Requested-With': 'XMLHttpRequest', // Identifies the request as being made via XMLHttpRequest
     },
-    withCredentials: true,
+    withCredentials: true, // Include credentials such as cookies
 });
 
-// Función para iniciar sesión
+// Function to log in a user
 export const auth = async (email, password) => {
-
- 
     try {
-        // Obtener el token CSRF
+        // Fetch the CSRF token to set up cookies for secure communication
         await axios.get(`${API_URL}/sanctum/csrf-cookie`);
         
-        // Realizar la solicitud de inicio de sesión
+        // Perform the login request with user credentials
         const response = await api.post('/login', {
             email,
             password,
         });
 
-        // Guardar la información del usuario en localStorage
+        // Save user information to localStorage for session management
         localStorage.setItem('user', JSON.stringify(response.data));
 
-        
-
-        return response.data;
+        return response.data; // Return the server's response
     } catch (error) {
-        console.error('Error al iniciar sesión:', error.response ? error.response.data : error);
+        // Log and propagate any error that occurs during login
+        console.error('Error during login:', error.response ? error.response.data : error);
         throw error;
     }
 };
 
-
-// Función para crear un nuevo usuario
+// Function to create a new user
 export const createUser = async (userData) => {
     try {
-
-        //console.log(userData);    
+        // Send a POST request with the user's data
         const response = await axios.post(`${API_URL}/api/users`, userData);
-        return response.data;
+        return response.data; // Return the server's response
     } catch (error) {
-        console.error('Error al crear usuario:', error);
+        // Log and propagate any error that occurs during user creation
+        console.error('Error during user creation:', error);
         throw error;
     }
 };
 
-
-// Función para actualizar un usuario existente
+// Function to update an existing user
 export const updateUser = async (userId, userData) => {
+
+    console.log(userData);
     try {
+        // Send a PUT request with the user's updated data
         const response = await axios.put(`${API_URL}/api/users/${userId}`, userData);
-        return response.data;
+        return response.data; // Return the server's response
     } catch (error) {
-        console.error('Error al actualizar usuario:', error);
+        // Log and propagate any error that occurs during user update
+        console.error('Error during user update:', error);
         throw error;
     }
 };
 
-
-// Función para eliminar un usuario
+// Function to delete a user
 export const deleteUser = async (userId) => {
     try {
+        // Send a DELETE request to remove the user
         const response = await axios.delete(`${API_URL}/api/users/${userId}`);
-        return response.data;
+        return response.data; // Return the server's response
     } catch (error) {
-        console.error('Error al eliminar usuario:', error);
+        // Log and propagate any error that occurs during user deletion
+        console.error('Error during user deletion:', error);
         throw error;
     }
 };
 
+// Function to fetch all users
 export const getUsers = () => api.get('/users');
 
-// // Función para obtener la información del usuario almacenado
-// export const getUser = () => {
-//     return JSON.parse(localStorage.getItem('user'));
-// };
-
-// Función para cerrar sesión
+// Function to log out the user
 export const logout = async () => {
     try {
+        // Send a POST request to log out
         await api.post('/logout');
-        localStorage.removeItem('user');
     } catch (error) {
-        console.error('Error al cerrar sesión:', error);
+        // Log any error that occurs during logout
+        console.error('Error during logout request:', error);
+    } finally {
+        // Always remove user information from localStorage, even if there's an error
+        localStorage.removeItem('user');
     }
+
 };
+

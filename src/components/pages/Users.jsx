@@ -1,28 +1,18 @@
 // src/components/organisms/Login.jsx
 import React, { useState } from 'react';
-import SideBar from '../organisms/Sidebar';
-import Dashboard from '../templates/dashboard';
-import UsersList from '../organisms/UsesList';
-
-
+import SideBar from '../organisms/Sidebar'; // Import the Sidebar component
+import Dashboard from '../templates/dashboard'; // Import the Dashboard template
+import UsersList from '../organisms/UsesList'; // Import the UsersList component
 
 const Users = () => {
  
-
   return (
     <>
-   
-   <Dashboard/>
-
-
-   <div className='contain-main'>
-    {/* <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5"> */}
-      <UsersList/>
-    {/* </div> */}
-
-   </div>
- 
-
+      {/* Wrapping the Users page inside the Dashboard template */}
+      <Dashboard title={'Usuarios'} sectionName={'Catalogo usuarios'}>
+        {/* Display the list of users */}
+        <UsersList />
+      </Dashboard>
     </>
   );
 };

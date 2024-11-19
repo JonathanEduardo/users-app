@@ -1,4 +1,4 @@
-// src/components/atoms/Modal.jsx
+
 import React from 'react';
 
 const Modal = ({ isOpen, onClose, children, title }) => {

@@ -30,28 +30,12 @@ export const login = async (email, password) => {
 
 
 
-//Función para crear un nuevo usuario
-export const createUser = async (userData) => {
-    try {
-
-        console.log(userData);
-        alert(API_URL);
-        const response = await axios.post(`${API_URL}/users`, userData);
-        return response.data;
-    } catch (error) {
-        console.error('Error al crear usuario:', error);
-        throw error;
-    }
-};
 
 
 
 
 
-// export const getUsers = () => api.get('/users');
-export const toggleUserStatus = (userId, status) => 
-     api.put(`/users/${userId}/status`, { active: status });
 
-// export const logout = () => api.post('/logout');
+
 
 export default api;

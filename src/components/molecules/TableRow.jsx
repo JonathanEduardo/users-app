@@ -25,21 +25,21 @@ return (
                 </div>
         </td>
         <td>
-            <div class="relative h-10  px-10">
+            <div class="relative h-10  px-3">
         
-            <ButtonTable onClick={() => onClick(user)} type='submit'>
+            <ButtonTable onClick={() => onClick(user)} type='submit' classStyle="text-primary-color px-2 text-lg" >
                 
                 <i class="fa-solid fa-pen-to-square"></i>
             </ButtonTable>
 
-            <ButtonTable  onClick={() => deleteUser(user.id)} type='submit'>
+            <ButtonTable  onClick={() => deleteUser(user.id)} type='submit' classStyle="text-primary-color px-2 text-lg" >
                  <i class="fa-solid fa-trash"></i>
 
             </ButtonTable>
 
-              <Switch 
+              {/* <Switch 
                 isChecked={user.active} 
-                onToggle={() => onToggleStatus(user.id, !user.active)} />
+                onToggle={() => onToggleStatus(user.id, !user.active)} /> */}
 
              
             </div>

@@ -17,17 +17,17 @@ const DeleteForm = ({ onSubmit, onClose, errorMessage, currentUser }) => {
 
   return (
  <>
-    <form onSubmit={handleSubmit} className="">
+    <div className='flex flex-row gap-5 '>
+    <form onSubmit={handleSubmit} className="w-1/2 ">
       {errorMessage  && <Alert message={errorMessage } type="errorMessage " />}
      
-      <Button type='submit'> Eliminar </Button>
+      <Button type='submit' classStyle="bg-primary-color px-4 py-2 border-md text-white float w-full" > Eliminar </Button>
       
     
-
-    
-      
     </form>
-      <Button type='buton' onClick={onClose}> Cancelar </Button>
+      <Button type='buton' onClick={onClose} classStyle="bg-danger-color px-4 py-2 border-md text-white w-1/2" > Cancelar </Button>
+ 
+    </div>
  </>
   );
 };

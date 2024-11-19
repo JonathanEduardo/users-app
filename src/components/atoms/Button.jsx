@@ -1,13 +1,13 @@
 // src/components/atoms/Button.jsx
 import React from 'react';
 
-const Button = ({ onClick, children, type = 'button' }) => {
+const Button = ({ onClick, children, type = 'button', classStyle = 'btn-tertiary-1' }) => {
   return (
 
     <>
     
     
-        <button type={type} onClick={onClick} className="btn-tertiary-1">
+        <button type={type} onClick={onClick} className={classStyle}>
           {children}
         </button>
     </>

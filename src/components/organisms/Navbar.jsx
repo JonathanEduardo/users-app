@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 
-const Navbar = () => {
+const Navbar = ({title = 'titulo', sectionName = 'Sección'}) => {
  
   const [user, setUser] = useState(null);
   const [name, setUserName] = useState(null);
@@ -32,8 +32,8 @@ const Navbar = () => {
 
     <div className='flex flex-row justify-between  w-8/12  lg:w-10/12 '>
       <div className='flex flex-col text-primary-color'>
-          <div className='font-normal text-xs'>Catalogo de usuarios</div>
-          <div className='font-bold'>Usuarios</div>
+          <div className='font-normal text-xs'>{sectionName}</div>
+          <div className='font-bold'>{title}</div>
         </div>
 
         <div className=''>
