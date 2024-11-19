@@ -1,23 +1,37 @@
-
+/*Identity*/
 .title-primary-1{@apply mb-1 text-lg font-bold text-primary-color}
 .text-primary-light-1{@apply mb-6 text-sm font-medium text-primary-color-lighter font-sans}
 .text-primary-1{@apply mb-6 text-xs font-normal  text-primary-color font-sans}
 .text-primary-2{@apply mb-6 text-xs font-semibold  text-primary-color font-sans}
 .text-tertiary-1{@apply mb-6 text-xs font-bold  text-tertiary-color-lighter-100 font-sans}
+.input{ @apply p-3 bg-secondary-color  rounded-md text-xs text-primary-color-lighter w-full mt-1.5  mb-5}
+.btn-tertiary-1{@apply bg-tertiary-color text-secondary-color-lighter font-semibold text-xs w-full  py-3 rounded-md}
+
+/* Login  */
 .login{background-image: url('https://static.wixstatic.com/media/c6810c_fcdf5be4101c4df590be60ca7ee1c39b~mv2.jpg/v1/crop/x_0,y_1041,w_3024,h_1950/fill/w_501,h_323,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/pexels-dmitry-zvolskiy-2253643.jpg');  @apply bg-cover}
 .card-login{
   @apply ml-20 bg-secondary-color-lighter w-full md:w-1/3 xl:w-1/4 flex flex-col px-5 py-6 border rounded-md
   ;
 }
 
-.input{ @apply p-3 bg-secondary-color  rounded-md text-xs text-primary-color-lighter w-full mt-1.5  mb-5}
-
-
-.btn-tertiary-1{@apply bg-tertiary-color text-secondary-color-lighter font-semibold text-xs w-full  py-3 rounded-md}
-
-
-.sidebar{@apply bg-primary-color text-secondary-color-lighter fixed left-0 top-0 w-2/12 h-full px-2 flex flex-col justify-between py-4}
-.navbar{@apply bg-secondary-color-lighter h-10 text-primary-color fixed left-0 top-0 w-full}
-.contain-main{@apply bg-secondary-color px-10 py-12; margin-left: 16.666%; width: 84%; }
+/*Templates*/
+.sidebar{@apply bg-primary-color text-secondary-color-lighter fixed left-0 top-0 w-56 h-full px-2 flex flex-col justify-between py-4 }
+.navbar{@apply bg-secondary-color-lighter h-14 text-primary-color fixed left-0 top-0 w-full  flex justify-end items-center px-4; margin-left: 16.666%; width: 84%; }
+.contain-main{@apply bg-secondary-color px-10 py-16 h-screen; margin-left: 16.666%; width: 84%; }
 .option-menu{@apply bg-primary-color hover:bg-tertiary-color-lighter-200 flex flex-row px-2 py-1.5 text-xs font-medium rounded-md my-3}
 .option-menu i {@apply mr-3}
+
+
+ /* Table  */
+table{@apply w-full border-collapse bg-white text-left text-sm text-gray-500}
+thead{@apply bg-gray-50}
+th{@apply px-6 py-4 font-medium text-gray-900}
+tbody{@apply divide-y divide-gray-100 border-t border-gray-100}
+tr{@apply hover:bg-gray-50}
+
+
+
+/*Modal */
+.modal{@apply fixed top-0 left-0 w-full h-screen}
+.modal-container {@apply top-5 bg-white px-8 py-8 border rounded-md shadow-sm mx-auto w-1/2 mt-20 }
+.modal-header{@apply flex flex-row  justify-between mb-5}

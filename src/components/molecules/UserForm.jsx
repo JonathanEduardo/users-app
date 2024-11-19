@@ -1,13 +1,24 @@
 // src/components/molecules/LoginForm.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect  } from 'react';
 import Input from '../atoms/Input';
 import Button from '../atoms/Button';
 import Alert from '../atoms/Alert';
 
-const UserForm = ({ onSubmit, errorMessage  }) => {
+const UserForm = ({ onSubmit, errorMessage, currentUser }) => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
+
+
+    // Establece valores iniciales si currentUser está presente
+    useEffect(() => {
+
+        console.log(currentUser);
+        if (currentUser) {
+          setEmail(currentUser.email || '');
+          setName(currentUser.name || '');
+        }
+      }, [currentUser]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -39,7 +50,7 @@ const UserForm = ({ onSubmit, errorMessage  }) => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <Button type='submit'>Iniciar sesion</Button>
+      <Button type='submit'>Guardar</Button>
       
     </form>
   );

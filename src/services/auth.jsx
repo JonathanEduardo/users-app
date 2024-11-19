@@ -17,6 +17,8 @@ const api = axios.create({
 
 // Función para iniciar sesión
 export const auth = async (email, password) => {
+
+ 
     try {
         // Obtener el token CSRF
         await axios.get(`${API_URL}/sanctum/csrf-cookie`);
@@ -39,10 +41,28 @@ export const auth = async (email, password) => {
     }
 };
 
-// Función para obtener la información del usuario almacenado
-export const getUser = () => {
-    return JSON.parse(localStorage.getItem('user'));
+
+// Función para crear un nuevo usuario
+export const createUser = async (userData) => {
+    try {
+
+        //console.log(userData);    
+        const response = await axios.post(`${API_URL}/api/users`, userData);
+        return response.data;
+    } catch (error) {
+        console.error('Error al crear usuario:', error);
+        throw error;
+    }
 };
+
+
+
+export const getUsers = () => api.get('/users');
+
+// // Función para obtener la información del usuario almacenado
+// export const getUser = () => {
+//     return JSON.parse(localStorage.getItem('user'));
+// };
 
 // Función para cerrar sesión
 export const logout = async () => {

@@ -1,8 +1,13 @@
 import React from 'react';
 import Switch from '../atoms/Switch';
 import Button from '../atoms/Button';
+import ButtonTable from '../atoms/ButtonTable';
 
-const TableRow = ({ user, onToggleStatus }) => (
+const TableRow = ({ user, onToggleStatus, onClick }) => {
+
+  
+   
+return (
     <tr>
         <th>
         <div class="relative h-10  ">
@@ -21,6 +26,11 @@ const TableRow = ({ user, onToggleStatus }) => (
         </td>
         <td>
             <div class="relative h-10  px-10">
+        
+            <ButtonTable onClick={() => onClick(user)} type='submit'>
+                Editar
+            </ButtonTable>
+
               <Switch 
                 isChecked={user.active} 
                 onToggle={() => onToggleStatus(user.id, !user.active)} />
@@ -31,5 +41,6 @@ const TableRow = ({ user, onToggleStatus }) => (
         </td>
     </tr>
 );
+};
 
 export default TableRow;

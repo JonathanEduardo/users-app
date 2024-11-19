@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import UserTable from '../molecules/UserTable';
-import { getUsers, toggleUserStatus } from '../../services/api';
+import {  toggleUserStatus } from '../../services/api';
+import {createUser , getUsers} from '../../services/auth';
 import Modal from '../atoms/Modal.JSX';
 import UserForm from '../molecules/UserForm';
 
@@ -46,15 +47,15 @@ const UsersList = () => {
      //  email: 'jonathan@artendidital.mx', password: 'xfgfxgxfgxv'}
 
 
-     console.log(userData);
+    //  console.log(userData);
       
-    //  if (isEditMode) {
-    //       await updateUser(userData.id, userData);  // Llamada para actualizar usuario
-    //   } else {
-    //       await createUser(userData);  // Llamada para crear nuevo usuario
-    //   }
-    //   closeUserModal();
-    //   loadUsers();
+     if (isEditMode) {
+          // await updateUser(userData.id, userData);  // Llamada para actualizar usuario
+      } else {
+          await createUser(userData);  // Llamada para crear nuevo usuario
+      }
+      closeUserModal();
+      loadUsers();
 
 
       setError('Credenciales incorrectas, por favor intenta nuevamente.');
@@ -85,6 +86,8 @@ const UsersList = () => {
 
     // Abrir modal para Crear/Editar
     const openUserModal = (user = null) => {
+
+      console.log(user);
       setCurrentUser(user);
       setEditMode(!!user);
       setModalOpen(true);
@@ -98,10 +101,12 @@ const UsersList = () => {
                 users={users} 
                 onSort={handleSort} 
                 onToggleStatus={handleToggleStatus} 
+                onClick={openUserModal}
+
             />
 
             <Modal isOpen={isModalOpen} onClose={closeUserModal} title={isEditMode ? 'Editar Usuario' : 'Crear Usuario'}>
-               <UserForm onSubmit={handleUserSubmit} error={error} />
+               <UserForm onSubmit={handleUserSubmit} error={error} currentUser={currentUser} />
                
             </Modal>
 

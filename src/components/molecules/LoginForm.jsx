@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Input from '../atoms/Input';
 import Button from '../atoms/Button';
 import Alert from '../atoms/Alert';
+import Terms from '../atoms/Terms';
 
 const LoginForm = ({ onSubmit, errorMessage  }) => {
   const [email, setEmail] = useState('');
@@ -30,6 +31,8 @@ const LoginForm = ({ onSubmit, errorMessage  }) => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
+
+      <Terms/>
       <Button type='submit'>Iniciar sesion</Button>
       
     </form>

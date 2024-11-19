@@ -1,11 +1,11 @@
 // src/components/atoms/Button.jsx
 import React from 'react';
 
-const Button = ({ onClick, children, type = 'button' }) => {
+const ButtonTable = ({ onClick, children, type = 'button' }) => {
   return (
 
     <>
-    
+  
     
         <button type={type} onClick={onClick} className="btn-tertiary-1">
           {children}
@@ -14,4 +14,4 @@ const Button = ({ onClick, children, type = 'button' }) => {
   );
 };
 
-export default Button;
+export default ButtonTable;
